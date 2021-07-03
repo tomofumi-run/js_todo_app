@@ -11,24 +11,6 @@
 <body class="bg-light">
 <br class="bg-light">
   <h1 class="text-center">電卓アプリ</h1>
-  <script>
-    function update(n) {
-      document.querySelector('input').value = n
-    }
-    function append(n) {
-      document.querySelector('input').value += n
-    }
-    function calc()
-    {
-      const v = document.querySelector('input').value
-      try {
-        const f = new Function( 'return ' + v ) //valueを文字列に変換
-        update(f().toString()) //fの実行結果を文字列変換させてupdate
-      } catch(error) {
-        update(error)
-      }
-    }
-    </script>
     <div class="container text-center">
         <input /><br>
         <button class="btn btn-sm border" onclick = "append('1')">1</button>
@@ -41,17 +23,18 @@
         <button class="btn btn-sm border" onclick = "append('8')">8</button><br>
         <button class="btn btn-sm border" onclick = "append('9')">9</button>
         <button class="btn btn-sm border" onclick = "append('0')">0</button>
-        <button class="btn btn-sm border" onclick = "append('9')">9</button>
-        <button class="btn btn-sm border" onclick = "append('0')">0</button><br>
         <button class="btn btn-sm border" onclick = "append('.')">.</button>
-        <button class="btn btn-sm border" onclick = "append('-')">-</button>
-        <button class="btn btn-sm border" onclick = "append('+')">+</button>
         <button class="btn btn-sm border" onclick = "append('-')">-</button><br>
-        <button class="btn btn-sm border" onclick = "append('*')">*</button>
-        <button class="btn btn-sm border" onclick = "append('/')">/</button>
-        <button class="btn btn-sm border calc" onclick = "calc()">=</button><br>
+        <button class="btn btn-sm border" onclick = "append('+')">+</button>
+        <button class="btn btn-sm border" onclick = "append('-')">-</button>
+        <button class="btn btn-sm border" onclick = "append('*')">x</button>
+        <button class="btn btn-sm border" onclick = "append('/')">/</button><br>
+        <button class="btn btn-sm border calc" onclick = "calc()">=</button>
         <button class="btn btn-sm border clr" onclick = "update('')">CLR</button>
-        <button class="btn btn-sm border add" onclick = "update('')">ADD</button>
+        <button class="btn btn-sm border add" onclick = "add()">ADD</button>
+
+        <div id="lists"></div>
     </div>
+    <script src="calc.js"></script>
 </body>
 </html>
